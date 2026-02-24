@@ -8,29 +8,29 @@ export default function HeroBanner() {
   const [fade, setFade] = useState(true);
   const videoRef = useRef(null);
 
-  // Auto-rotation (pauses when heroMovie is set)
+  // Auto-rotation  and also pauses when heroMovie is set 
   useEffect(() => {
-    if (heroMovie) return; // Pause rotation when hovering
+    if (heroMovie) return; // this will pause rotation when hovering
 
     const interval = setInterval(() => {
-      setFade(false); // start fade out
+      setFade(false); //segment for start fade out
 
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % movies.length);
-        setFade(true); // fade in new content
-      }, 400); // fade duration
+        setFade(true); //segment for fade in new content
+      }, 400); //segment for fade duration
     }, 5000);
 
     return () => clearInterval(interval);
   }, [heroMovie]);
 
-  // Hero trailer playback
+  //segment for Hero trailer playback
   useEffect(() => {
     if (!heroMovie || !videoRef.current) return;
 
     const video = videoRef.current;
 
-    // Direct MP4 playback (no HLS)
+    //segment for Direct MP4 playback (no HLS)
     video.src = heroMovie.trailer;
     video.play().catch(() => {});
 
@@ -50,7 +50,7 @@ export default function HeroBanner() {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Netflix Grid Pattern Background */}
+      {/*segment for Netflix Grid Pattern Background */}
       <div 
         className="absolute inset-0 opacity-10"
         style={{
@@ -62,7 +62,7 @@ export default function HeroBanner() {
         }}
       />
 
-      {/* Radial Glow Effect */}
+      {/* segment for Radial Glow Effect */}
       <div 
         className="absolute inset-0 opacity-20"
         style={{
@@ -70,9 +70,9 @@ export default function HeroBanner() {
         }}
       />
 
-      {/* Content Container */}
+      {/*segment for Content Container */}
       <div className="relative w-full h-full">
-        {/* Background Image/Video */}
+        {/*segment for Background Image/Video */}
         {heroMovie ? (
           <video
             key={featured.id}
@@ -94,14 +94,14 @@ export default function HeroBanner() {
           />
         )}
 
-        {/* Dark Overlay */}
+        {/* segment for Dark Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
 
-        {/* Netflix Red Accent Line */}
+        {/*segment for Netflix Red Accent Line */}
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#e50914] via-[#e50914]/50 to-transparent" />
       </div>
 
-      {/* Text Content */}
+      {/* segment for Text Content */}
       <div
         className={`absolute bottom-10 left-8 max-w-lg transition-opacity duration-500 z-10 ${
           fade ? "opacity-100" : "opacity-0"
@@ -121,14 +121,14 @@ export default function HeroBanner() {
     boxShadow: "0 8px 25px rgba(229, 9, 20, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
   }}
 >
-  {/* Animated Background Glow */}
+  {/*this is segment for  Animated Background Glow */}
   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
     style={{
       background: "radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%)",
     }}
   />
 
-  {/* Shimmer Effect on Hover */}
+  {/* this does Shimmer Effect on Hover */}
   <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300"
     style={{
       background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
@@ -136,7 +136,7 @@ export default function HeroBanner() {
     }}
   />
 
-  {/* Content */}
+  {/*main area for Content */}
   <div className="relative flex items-center gap-3">
     <svg className="w-6 h-6 fill-current group-hover:scale-125 transition-transform duration-300" viewBox="0 0 20 20">
       <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
@@ -146,7 +146,7 @@ export default function HeroBanner() {
     </span>
   </div>
 
-  {/* Hover Border Glow */}
+  {/* this is for hover Border Glow */}
   <div className="absolute inset-0 rounded-lg border-2 border-white opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
 </button>
       </div>

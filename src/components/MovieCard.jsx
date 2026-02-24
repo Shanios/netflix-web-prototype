@@ -81,7 +81,7 @@ export default function MovieCard({ movie }) {
       onMouseMove={handleMouseMove}
       onClick={() => playMovie(movie)}
     >
-      {/* Poster Container */}
+      {/*segment for Poster Container */}
       <div className="relative w-full h-full overflow-hidden rounded-lg">
         <img
           src={movie.poster}
@@ -98,7 +98,7 @@ export default function MovieCard({ movie }) {
           }
         />
 
-        {/* Lens Circle Overlay */}
+        {/*segment for Lens Circle Overlay */}
         {isHovered && (
           <div
             className="absolute w-20 h-20 border-3 border-white rounded-full pointer-events-none z-20"
@@ -110,35 +110,35 @@ export default function MovieCard({ movie }) {
           />
         )}
 
-        {/* Red Border on Hover */}
+        {/*segment for Red Border on Hover */}
         <div
           className={`absolute inset-0 rounded-lg pointer-events-none transition-all duration-300 z-10 ${
             isHovered ? "border-2 border-[#e50914]" : "border-2 border-transparent"
           }`}
         />
 
-        {/* Movie Details - Text Only, No Background */}
+        {/*segment for Movie Details - Text Only, No Background */}
         {isHovered && (
           <div className="absolute left-0 top-0 h-full flex flex-col justify-between p-3 z-30 animate-slide-in">
-            {/* Certificate, Genre, and Year */}
+            {/*this is display Certificate, Genre, and Year */}
             <div className="flex items-center gap-2 flex-wrap">
-              {/* Certificate Badge */}
+              {/*this is display Certificate Badge */}
               <div className="bg-white text-[#e50914] px-2 py-1 rounded font-bold text-sm">
                 {movie.certificate}
               </div>
 
-              {/* Genre with same background */}
+              {/*segment for Genre with same background */}
               <div className="bg-white text-[#e50914] px-2 py-1 rounded font-bold text-xs">
                 {movie.genre}
               </div>
 
-              {/* Year with same background */}
+              {/* this is display Year with same background */}
               <div className="bg-white text-[#e50914] px-2 py-1 rounded font-bold text-xs">
                 {movie.year}
               </div>
             </div>
 
-            {/* Play Button */}
+            {/* this is display Play Button */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -152,14 +152,14 @@ export default function MovieCard({ movie }) {
         )}
       </div>
 
-      {/* PIP Preview Window - Centered Inside Card */}
+      {/*area for  PIP Preview Window - Centered Inside Card */}
       {isHovered && (
         <div
           className="absolute inset-0 flex items-center justify-center z-40 animate-expand"
           onMouseMove={handlePIPMouseMove}
         >
           <div className="w-96 h-80 rounded-lg overflow-hidden border-2 border-[#e50914] shadow-2xl bg-black flex flex-col">
-            {/* Video Container */}
+            {/*area for  Video Container */}
             <div className="relative flex-1 overflow-hidden" onMouseMove={handlePIPMouseMove}>
               <video
                 ref={previewVideoRef}
@@ -171,19 +171,19 @@ export default function MovieCard({ movie }) {
                 className="w-full h-full object-cover"
               />
 
-              {/* Movie Info Overlay - Top Left (Horizontal) */}
+              {/*area for Movie Info Overlay - Top Left (Horizontal) */}
               <div className="absolute top-3 left-3 z-20 flex items-center gap-3">
                 {/* Certificate */}
                 <div className="bg-white text-[#e50914] px-2 py-1 rounded font-bold text-xs">
                   {movie.certificate}
                 </div>
-                {/* Genre */}
+                {/*  this will display Genre */}
                 <p className="text-white text-xs font-bold">{movie.genre}</p>
-                {/* Year */}
+                {/*this will display Year */}
                 <p className="text-gray-300 text-xs">{movie.year}</p>
               </div>
 
-              {/* Play Button - Center */}
+              {/*this will display Play Button - Center */}
               {previewVideoRef.current?.paused && (
                 <button
                   onClick={(e) => {

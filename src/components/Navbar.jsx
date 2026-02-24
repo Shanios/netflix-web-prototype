@@ -32,14 +32,14 @@ export default function Navbar() {
   }, []);
 
   const handleHomeClick = () => {
-    stopMovie(); // Stop any playing movie
+    stopMovie(); //this will Stop any playing movie
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
     
-    // Reset all filters and search
-    setSelectedCategory("all"); // Reset category to "all"
-    clearSearch(); // Clear search from context
-    setInput(""); // Clear local search input
-    setSearchOpen(false); // Close search input if open
+    // this will Reset all filters and search
+    setSelectedCategory("all"); 
+    clearSearch(); 
+    setInput(""); 
+    setSearchOpen(false); 
     
     // Dispatch event to reset category filter
     window.dispatchEvent(
@@ -88,14 +88,14 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-8 py-3">
         {/* Logo and Navigation together */}
         <div className="flex items-center gap-6">
-          {/* 2000s Netflix Logo */}
+          
           <div className="relative">
             <div className="bg-black border-2 border-[#e50914] px-3 py-1 rounded">
               <span className="text-[#e50914] font-black text-lg tracking-wide">NETFLIX</span>
             </div>
           </div>
 
-          {/* Center Navigation - Now closer to logo with increased boldness */}
+         
           <div className="flex items-center gap-6 text-sm">
             <span
               onClick={handleHomeClick}

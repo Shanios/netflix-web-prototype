@@ -5,7 +5,7 @@ const WatchHistoryContext = createContext();
 export const WatchHistoryProvider = ({ children }) => {
   const [watchHistory, setWatchHistory] = useState([]);
 
-  // Load from localStorage
+  //this will Load from localStorage
   useEffect(() => {
     const saved = localStorage.getItem("watchHistory");
     if (saved) {
@@ -13,13 +13,13 @@ export const WatchHistoryProvider = ({ children }) => {
     }
   }, []);
 
-  // Save to localStorage
+  //now saves save to localStorage
   useEffect(() => {
     localStorage.setItem("watchHistory", JSON.stringify(watchHistory));
   }, [watchHistory]);
 
   const updateWatchTime = (movieId, currentTime, duration) => {
-    // Only save if video is 5% - 95% watched (not completed, not just started)
+    //we will Only save if video is 5% - 95% watched (not completed, not just started)
     const watchPercentage = (currentTime / duration) * 100;
     
     if (watchPercentage >= 5 && watchPercentage < 95) {
